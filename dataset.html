@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"> Datasets </a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html"> Description </a></li>
+							<li class="active"><a href="dataset.html"> Datasets </a></li>
+							<li><a href="elements.html"> Evaluation </a></li>
+							<li><a href="challenge.html"> Challenge Tasks </a></li>
+							<li><a href="deadline.html"> Deadline </a></li>
+							<li><a href="organizers.html"> Organizers </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+                        
+						<article class="post featured">
+						
+							<h3> Datasets </h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;"> 
+								We present a large-scale video dataset with 75 hours of video content, among which
+								50/5/20 hours are used for training, validation, and testing, respectively. Both visual
+								(weak) and audio annotations are provided. Moreover, additional 200-hour unlabeled
+								video content is provided as an unsupervised training resources.
+							</p>
+							<h4> Visual annotation: </h4>
+                            <p style="text-align:justify; text-justify:inter-ideograph;"> 
+								For each video, we will provide pseudo-subtitles along with their locations and
+								timestamps. In the creation stage, our video OCR system results are generated and
+								corrected in combined with ASR ground truth labels as follows:
+								<br/>
+								<b>Step 1:</b> We extract five frames per second from videos, and then detect and recognize
+							   the text in the frames with the high-precision TencentOCR systems. We save all the
+							   text lines as the visual annotations, and they are used for the subtask 2.
+							   <br/>
+							   <b>Step 2:</b> To identify the subtitle text, we compare the OCR results with the ASR
+							   ground truth to determine which text lines belonge to the subtitles, and take the
+							   corresponding bounding boxes, and recognized text as the subtitle pseudo-
+							   annotations.
+							   <br/>
+							   The location is presented as a bounding box with the coordinates of the four
+							   corners. The timestamp can be obtained with the frames per second (FPS) of the video
+							   and the index of each frame.
+							   <br/>
+							   The annotation has the following format for a subtitle:
+							   <br/>
+							   {
+								"video_name": video_name, "frame_id": frame_id, "bounding_box": bounding_box, "text": text,
+								"fps": fps
+								}.
+								<br/>
+								For example, for a video named "TV_00000001", all of the texts in a frame, including one subtitle in the red box, has annotations shown belows :
+								<br/>
+							</p>
+							<p style="text-align:center;">
+								<img src="images/pic1.png" width="50%" align="center" />
+							</p>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								{
+									"video_name": "TV_00000001",
+									"frame_id": 100,
+									"content:" { "bounding_box":[48，34，69，34，69，44，48，44], "text":"BTV" "bounding_box":[329，280，382，280，382，304，329，304], "text":"北京同仁堂" "bounding_box":[353，293，363，293，363，301，353，301],
+                                    "text":“冠名播出”
+									"bounding_box": [112, 278, 349, 278, 349, 300, 112, 300], "text": "都放在你这个手指的动作上面"
+									},
+									"fps": 25
+								}.
+
+							</p>
+							<h4> Audio annotation: </h4>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								For each audio clip, we will provide their text and segment file in terms of the KALDI
+								format (https://kaldi-asr.org/doc/data_prep.html). The segment file is the start and end
+								time of VAD segments for each audio clip.
+								<br/>
+								<b>text:</b> TV_00000001 都 放在 你 这个 手指 的 动作 上面 
+								<br/>
+								<b>segments:</b> TV_00000001 TV 0 3.259
+								<br/>
+								<b>wav.scp:</b> TV_00000001 TV.wav							
+							</p>
+							<h3> 
+								Dev and Eval set
+							</h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								We will provide a testing dataset without ground-truth. Participants can submit their
+								results and we will evaluate and rank them. A development set will also be provided
+								with ground-truth so that the participants can optimize their algorithms with it.
+								We will develop and publish a web site for this challenge prior to registration.
+							</p>
+							<h3> Summary of the Dataset </h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;" > The following data will be provided at the training periods as follows: 
+								
+								<table>
+									<tr>
+										<td> </td>
+										<td> <b> Visual Annotation </b> </td>
+										<td> <b> Audio Annotation </b> </td>
+									</tr>
+									<tr>
+										<td> Training set provided (50h) </td>
+										<td> Yes (weak annotation) </td>
+										<td>  Yes </td>
+									</tr>
+									<tr>
+										<td> Public dataset for training </td>
+										<td> detection: ICDAR2019-LVST <br/>
+											recognition: <a href="https://github.com/YCG09/chinese_ocr"> chinese_ocr </a> <br/>
+											(only 10k images can be used) </td>
+										<td>  <a href="http://www.aishelltech.com/kysjcp"> Aishell1(150h) </a>
+											 </td>
+									</tr>
+									<tr>
+										<td> Training set without annotation (200h) </td>
+										<td> No </td>
+										<td> No </td>
+									</tr>
+									<tr>
+										<td> Dev set (5h) </td>
+										<td> Yes </td>
+										<td> Yes </td>
+									</tr>
+									<tr>
+										<td> Eval set (20h) </td>
+										<td> No </td>
+										<td> No </td>
+									</tr>
+								</table>
+                               <br/>
+							   <p style="text-align:justify; text-justify:inter-ideograph;" >
+							   The rules governing the use of the different dataset are outlined in the follwing table.
+							   </p>
+							 
+							   <table >
+								<tr>
+									<td> <b> Activity </b> </td>
+									<td> <b> Build </b> </td>
+									<td> <b> Dev </b> </td>
+									<td> <b> Eval </b> </td>
+								</tr>
+								<tr>
+									<td> Manually examine data before the end of the evaluation </td>
+									<td> Yes </td>
+									<td> No </td>
+									<td> No </td>
+								</tr>
+								<tr>
+									<td> Manually examine data after the end of the evaluation </td>
+									<td>  Yes </td>
+									<td>  Yes </td>
+									<td> No </td>
+								</tr>
+								<tr>
+									<td> Train models using released data </td>
+									<td> Yes </td>
+									<td> No </td>
+									<td> No </td>
+								</tr>
+								<tr>
+									<td> Parameter tuning </td>
+									<td> Yes </td>
+									<td> Yes </td>
+									<td> No </td>
+								</tr>
+								<tr>
+									<td> Score </td>
+									<td> Yes </td>
+									<td> Yes </td>
+									<td> No </td>
+								</tr>
+							</table>
+							</p>
+
+                           <h3>Copyright</h3>
+						   <p style="text-align:justify; text-justify:inter-ideograph;" >
+							The dataset with copyright belonging to VMR is available for downloading for non-
+							commercial purposes under a Creative Commons Attribution 4.0 International
+							License. We will provide URLs to the original data for the other dataset, and release
+							under a CC license for our annotations.
+						   </p>
+
+
+						</article>
+
+					</div>
+
+				
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elements Reference - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"> Challenge Tasks </a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html"> Description </a></li>
+							<li><a href="dataset.html"> Dataset </a></li>
+							<li><a href="elements.html"> Evaluation </a></li>
+							<li class="active"><a href="challenge.html"> Challenge Tasks </a></li>
+                            <li><a href="deadline.html"> Deadline </a></li>
+                            <li><a href="organizers.html"> Organizers </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+                   
+				<!-- Main -->
+					<div id="main">
+                     
+					<article class="post featured">
+						<h3> Subtask 1: Extracting subtitles in visual modality with audio annotations </h3>
+					    <p style="text-align:justify; text-justify:inter-ideograph;">
+						To extract subtitles from video frames, a large number of keyframes should be
+						annotated with bounding boxes and contents, which is extremely costive. However,
+						speech transcripts are much easier to obtain, and they contain almost all the content of
+						the subtitles. In this subtask, we present a challenge that explores learning visual
+						subtitles with the supervision of speech scripts. We expect that the annotation from
+						the audio modality can improve the subtitle extraction from the visual modality.
+						In this subtask, we will present 75h of video content, divided into set of 50, 5, 20 as
+						training, validation, and testing sets, respectively. For the training set, only audio
+						annotations will be provided. The participants are required to design subtitles OCR
+						system with these annotations. To pretrain an OCR system, participants can also use a
+						limited number of open datasets, and fine-tune their model with audio supervision.
+						Under these conditions, will be asked to produce subtitle text for each video in our
+						testing set, and the submitted results will be ranked using the CER metric.
+						</p>
+						<h3> Subtask 2: Extracting subtitles in audio modal with visual annotations </h3>
+						<p style="text-align:justify; text-justify:inter-ideograph;">
+						In speech recognition tasks, especially in video speech recognition tasks, audio data
+						are difficult to label owing to background music, sound effects, or noise. However, all
+						texts information including subtitles in the video can supply weakly labeled
+						information.
+						There are lots of videos with subtitles. Some texts information including
+						subtitles are manually generated, whereas some are automaticly generated.
+						Although the quality of automatic subtitles may be worse than that of manual subtitles, they are
+						often available in much greater quantity.
+ 						Therefore, this task considers the use of
+ 						visual annotations in videos, especially automatic annotations to assist in building an
+						ASR system.
+						<br>
+						In this subtask, the participants will be required to use only visual annotations to
+						build an ASR system for the corresponding videos. To improve the robustness, some
+						public ASR data in the following tables may be used as well. We will also provide a
+						baseline model. The submitted results will be ranked with the CER metric on our
+						testing set.
+						</p>
+						<h3>Subtask 3: Extracting subtitles with both visual and audio annotations</h3>
+						<p style="text-align:justify; text-justify:inter-ideograph;">
+							In this subtask, for the training set, we present 50 hours of video content with both the
+							visual and audio supervisions and 200-hour video content with no annotation.
+							Another 20 and 5 h of videos will be provided to serve as validation and testing sets, respectively. 
+							For the visual annotation, we will provide bounding boxes and
+							characters of all text in key frames, we will present speech transcripts of
+							segment or the audio modal. With these data, participants will be required to produce
+							each VAD subtitle for each video in our testing set, and the submitted results will be ranked with
+							the CER metric.
+						</p>
+					</article>
+
+					</div>
+
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

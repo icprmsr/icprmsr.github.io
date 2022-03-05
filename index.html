@@ -1,55 +1,80 @@
 <!DOCTYPE HTML>
 <!--
-	Miniport by HTML5 UP
+	Massively by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title> Multimodal Subtitle Recognition </title>
+		<title>Massively by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					<li><a href="#des"> Description </a></li>
-					<li><a href="#data"> Datasets </a></li>
-					<li><a href="#eva"> Evaluation </a></li>
-					<li><a href="#base"> Baseline </a></li>
-					<li><a href="#sub"> Submission </a></li>
-					<li><a href="#imp"> Important Dates </a></li>
-					<li><a href="#org"> Organizers </a></li>
-				</ul>
-			</nav>
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
 
-		<!-- Home -->
-			<article id="des" class="wrapper style1">
-				<div class="container">
-					<div class="row">
-						<!--<div class="col-4 col-5-large col-12-medium">
-							<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-						</div> -->
-						<div align="left">
-                            <header>
-								<h2> Proposal for ICPR 2022 Challenge: Multimodal Subtitle Recognition </h2>
-							</header>
-							<h3> Introduction </h3>
-							<p style="text-align:justify; text-justify:inter-ideograph;"> In recent years, with the rapid rise of short videos, live broadcastsand other media-based applications, the widespread transmission of video data has led to a significant
-								increase in user-generated content. 
-								A wide variety of creative platforms and pattern have emerged, and media publication criteria is becoming more and more civilian,
-								leading to more complex and dynamic acoustic scenes in various long or short video and live streaming. 
-								The problems of video subtitle recognition and speech recognition under various scenarios have been of considerable concern by researchers. 
-								The development of methods accurately recognize and understand various types of video content has become an indispensable tool in downstream applications such as subtitle creation, content recommendation, digital media
-								archival, and so on. 
-								In this challenge, we focus on extracting subtitles from videos using both visual and audio modalities. Most previous works exploit it with a single modality , and each modality has its own
-								advantages and annotation difficulties on various types of training data. 
-								To this end, we present tasks that explore the integration of the advantages of both video and audio modalitioes. 
-								We expect to obtain high precision subtitles with lower annotation costs, thus expanding the scope of practical applications.
+				<!-- Intro -->
+					<div id="intro">
+						<h2> <strong> Multimodal Subtitle Recognition </strong> </h2>
+						<br>
+						<p style="text-align:justify; text-justify:inter-ideograph;"> 
+							In recent years, with the rapid rise of short videos, live broadcastsand other media-based applications, the widespread transmission of video data has led to a significant
+							increase in user-generated content. 
+							A wide variety of creative platforms and pattern have emerged, and media publication criteria is becoming more and more civilian,
+							leading to more complex and dynamic acoustic scenes in various long or short video and live streaming. 
+							The problems of video subtitle recognition and speech recognition under various scenarios have been of considerable concern by researchers. 
+							The development of methods accurately recognize and understand various types of video content has become an indispensable tool in downstream applications such as subtitle creation, content recommendation, digital media
+							archival, and so on. 
+							In this challenge, we focus on extracting subtitles from videos using both visual and audio modalities. Most previous works exploit it with a single modality , and each modality has its own
+							advantages and annotation difficulties on various types of training data. 
+							To this end, we present tasks that explore the integration of the advantages of both video and audio modalitioes. 
+							We expect to obtain high precision subtitles with lower annotation costs, thus expanding the scope of practical applications.
+						</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"> Description </a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html"> Description </a></li>
+							<li><a href="dataset.html"> Dataset </a></li>
+							<li><a href="elements.html"> Evaluation </a></li>
+							<li><a href="challenge.html"> Challenge Tasks </a></li>
+							<li><a href="deadline.html"> Deadline </a></li>
+							<li><a href="organizers.html"> Organizers </a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Featured Post -->
+							<article class="post featured">
+							<h3>
+								News and Updates
+							</h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								2022-03-04: Training and validation data has been released ( <a href="https://pan.baidu.com/s/12GtbAgjwd_Bpp3DxU94QFQ">Baidu Drive</a> (Extraction code: 0aka). 
+								Paticipants can use the released data to develop their algorithms.
 							</p>
+							
 							<h3> Description of the problem </h3>
                             <p style="text-align:justify; text-justify:inter-ideograph;"> 
 								Videos carry rich information with both visual (including text) and audio modality.
@@ -91,278 +116,13 @@
 								information is provided. In the third subtask, both visual and audio supervision are
 								provided and can be used.
 							</p>
-
-						</div>
-					</div>
-				</div>
-			</article>
-
-		<!-- Work -->
-			<article id="data" class="wrapper style2">
-				<div class="container">
-					<div class="row">
-						<div align="left">
-							<h3> Datasets </h3>
-							<p style="text-align:justify; text-justify:inter-ideograph;"> 
-								We present a large-scale video dataset with 75 hours of video content, among which
-								50/5/20 hours are used for training, validation, and testing, respectively. Both visual
-								(weak) and audio annotations are provided. Moreover, additional 200-hour unlabeled
-								video content is provided as an unsupervised training resources.
-							</p>
-							<h4> Visual annotation: </h4>
-                            <p style="text-align:justify; text-justify:inter-ideograph;"> 
-								For each video, we will provide pseudo-subtitles along with their locations and
-								timestamps. In the creation stage, our video OCR system results are generated and
-								corrected in combined with ASR ground truth labels as follows:
-								<br/>
-								<b>Step 1:</b> We extract five frames per second from videos, and then detect and recognize
-							   the text in the frames with the high-precision TencentOCR systems. We save all the
-							   text lines as the visual annotations, and they are used for the subtask 2.
-							   <br/>
-							   <b>Step 2:</b> To identify the subtitle text, we compare the OCR results with the ASR
-							   ground truth to determine which text lines belonge to the subtitles, and take the
-							   corresponding bounding boxes, and recognized text as the subtitle pseudo-
-							   annotations.
-							   <br/>
-							   The location is presented as a bounding box with the coordinates of the four
-							   corners. The timestamp can be obtained with the frames per second (FPS) of the video
-							   and the index of each frame.
-							   <br/>
-							   The annotation has the following format for a subtitle:
-							   <br/>
-							   {
-								"video_name": video_name, "frame_id": frame_id, "bounding_box": bounding_box, "text": text,
-								"fps": fps
-								}.
-								<br/>
-								For example, for a video named "TV_00000001", all of the texts in a frame, including one subtitle in the red box, has annotations shown belows :
-								<br/>
-							</p>
-							<p style="text-align:center;">
-								<img src="images/pic1.png" width="50%" align="center" />
-							</p>
-							<p style="text-align:justify; text-justify:inter-ideograph;">
-								{
-									"video_name": "TV_00000001",
-									"frame_id": 100,
-									"content:" { "bounding_box":[48，34，69，34，69，44，48，44], "text":"BTV" "bounding_box":[329，280，382，280，382，304，329，304], "text":"北京同仁堂" "bounding_box":[353，293，363，293，363，301，353，301],
-                                    "text":“冠名播出”
-									"bounding_box": [112, 278, 349, 278, 349, 300, 112, 300], "text": "都放在你这个手指的动作上面"
-									},
-									"fps": 25
-								}.
-
-							</p>
-							<h4> Audio annotation: </h4>
-							<p style="text-align:justify; text-justify:inter-ideograph;">
-								For each audio clip, we will provide their text and segment file in terms of the KALDI
-								format (https://kaldi-asr.org/doc/data_prep.html). The segment file is the start and end
-								time of VAD segments for each audio clip.
-								<br/>
-								<b>text:</b> TV_00000001 都 放在 你 这个 手指 的 动作 上面 
-								<br/>
-								<b>segments:</b> TV_00000001 TV 0 3.259
-								<br/>
-								<b>wav.scp:</b> TV_00000001 TV.wav							
-							</p>
-							<h4> 
-								Dev and Eval set
-							</h4>
-							<p style="text-align:justify; text-justify:inter-ideograph;">
-								We will provide a testing dataset without ground-truth. Participants can submit their
-								results and we will evaluate and rank them. A development set will also be provided
-								with ground-truth so that the participants can optimize their algorithms with it.
-								We will develop and publish a web site for this challenge prior to registration.
-							</p>
-						</div>
-					</div>
-					
-				</div>
-			</article>
-
-		<!-- Portfolio -->
-			<article id="eva" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Here’s some stuff I made recently.</h2>
-						<p>Proin odio consequat  sapien vestibulum consequat lorem dolore feugiat.</p>
-					</header>
-					<div class="row">
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-								<h3><a href="#">Magna feugiat</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
 							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-								<h3><a href="#">Veroeros primis</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-								<h3><a href="#">Lorem ipsum</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-								<h3><a href="#">Tempus dolore</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-								<h3><a href="#">Feugiat aliquam</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
-								<h3><a href="#">Sed amet ornare</a></h3>
-								<p>Ornare nulla proin odio consequat.</p>
-							</article>
-						</div>
 					</div>
-					<footer>
-						<p>Lorem ipsum dolor sit sapien vestibulum ipsum primis?</p>
-						<a href="#contact" class="button large scrolly">Get in touch with me</a>
-					</footer>
-				</div>
-			</article>
-
-		<!-- Contact -->
-			<article id="base" class="wrapper style4">
-				<div class="container medium">
-					<header>
-						<h2>Have me make stuff for you.</h2>
-						<p>Ornare nulla proin odio consequat sapien vestibulum ipsum.</p>
-					</header>
-					<div class="row">
-						<div class="col-12">
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="text" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="col-12">
-										<input type="text" name="subject" id="subject" placeholder="Subject" />
-									</div>
-									<div class="col-12">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
-											<li><input type="reset" value="Clear Form" class="alt" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="col-12">
-							<hr />
-							<h3>Find me on ...</h3>
-							<ul class="social">
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-								<li><a href="#" class="icon brands fa-google-plus"><span class="label">Google+</span></a></li>
-								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<!--
-								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
-								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
-								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
-								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
-								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
-								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
-								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
-								-->
-							</ul>
-							<hr />
-						</div>
-					</div>
-					<footer>
-						<ul id="copyright">
-							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
-				</div>
-			</article>
-
-		<!-- submission -->
-		<article id="sub" class="wrapper style1">
-			<div class="container">
-				<div class="row">
-					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-					</div>
-					<div class="col-8 col-7-large col-12-medium">
-						<header>
-							<h1>Hi. I'm <strong>Jane Doe</strong>.</h1>
-						</header>
-						<p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>
-						<a href="#work" class="button large scrolly">Learn about what I do</a>
-					</div>
-				</div>
 			</div>
-		</article>
-
-
-		<!-- Important Dates -->
-		<article id="imp" class="wrapper style1">
-			<div class="container">
-				<div class="row">
-					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-					</div>
-					<div class="col-8 col-7-large col-12-medium">
-						<header>
-							<h1>Hi. I'm <strong>Jane Doe</strong>.</h1>
-						</header>
-						<p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>
-						<a href="#work" class="button large scrolly">Learn about what I do</a>
-					</div>
-				</div>
-			</div>
-		</article>
-
-		<!-- Organizers -->
-		<article id="org" class="wrapper style1">
-			<div class="container">
-				<div class="row">
-					<div class="col-4 col-5-large col-12-medium">
-						<span class="image fit"><img src="images/pic00.jpg" alt="" /></span>
-					</div>
-					<div class="col-8 col-7-large col-12-medium">
-						<header>
-							<h1>Hi. I'm <strong>Jane Doe</strong>.</h1>
-						</header>
-						<p>And this is <strong>Miniport</strong>, a free, fully responsive HTML5 site template designed by <a href="http://twitter.com/ajlkn">AJ</a> for <a href="http://html5up.net">HTML5 UP</a> &amp; released under the <a href="http://html5up.net/license">CCA license</a>.</p>
-						<a href="#work" class="button large scrolly">Learn about what I do</a>
-					</div>
-				</div>
-			</div>
-		</article>
-
-
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
