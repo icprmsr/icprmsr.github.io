@@ -145,6 +145,186 @@
 						</p>
 
 						<h3> Datasets </h3>
+						<p style="text-align:justify; text-justify:inter-ideograph;"> 
+							We present a large-scale video dataset with 75 hours of video content, among which
+							50/5/20 hours are used for training, validation, and testing, respectively. Both visual
+							(weak) and audio annotations are provided. Moreover, additional 200-hour unlabeled
+							video content is provided as an unsupervised training resources.
+						</p>
+						
+                            <p style="text-align:justify; text-justify:inter-ideograph;"> 
+								<b> Visual annotation: </b>
+                                <br>
+								For each video, we will provide pseudo-subtitles along with their locations and
+								timestamps. In the creation stage, our video OCR system results are generated and
+								corrected in combined with ASR ground truth labels as follows:
+								<br/>
+								<b>Step 1:</b> We extract five frames per second from videos, and then detect and recognize
+							   the text in the frames with the high-precision TencentOCR systems. We save all the
+							   text lines as the visual annotations, and they are used for the subtask 2.
+							   <br/>
+							   <b>Step 2:</b> To identify the subtitle text, we compare the OCR results with the ASR
+							   ground truth to determine which text lines belonge to the subtitles, and take the
+							   corresponding bounding boxes, and recognized text as the subtitle pseudo-
+							   annotations.
+							   <br/>
+							   The location is presented as a bounding box with the coordinates of the four
+							   corners. The timestamp can be obtained with the frames per second (FPS) of the video
+							   and the index of each frame.
+							   <br/>
+							   The annotation has the following format for a subtitle:
+							   <br/>
+							   {
+								<br>
+								&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "video_name": video_name, 
+								<br>
+								&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "frame_id": frame_id,
+								<br>
+								&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "bounding_box": bounding_box, 
+								 <br>
+								&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text": text,
+								 <br>
+								 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "fps": fps,
+								<br>
+								}.
+								<br/>
+								For example, for a video named "TV_00000001", all of the texts in a frame, including one subtitle in the red box, has annotations shown belows :
+								<br/>
+							</p>
+							<p style="text-align:center;">
+								<img src="images/pic1.png" width="50%" align="center" />
+							</p>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								{
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "video_name": "TV_00000001",
+                                    <br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "frame_id": 100,
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "content":  {
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "bounding_box":[48，34，69，34，69，44，48，44], 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text":"BTV", 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "bounding_box":[329，280，382，280，382，304，329，304], 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text":"北京同仁堂", 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "bounding_box":[353，293，363，293，363，301，353，301],
+									<br>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text":“冠名播出”,
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "bounding_box": [112, 278, 349, 278, 349, 300, 112, 300], 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "text": "都放在你这个手指的动作上面", },
+									 
+									<br>
+									&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; "fps": 25
+									<br>
+								}.
+
+							</p>
+							
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								<b> Audio annotation: </b>
+                                <br>
+								For each audio clip, we will provide their text and segment file in terms of the KALDI
+								format (https://kaldi-asr.org/doc/data_prep.html). The segment file is the start and end
+								time of VAD segments for each audio clip.
+								<br/>
+								<b>text:</b> TV_00000001 都 放在 你 这个 手指 的 动作 上面 
+								<br/>
+								<b>segments:</b> TV_00000001 TV 0 3.259
+								<br/>
+								<b>wav.scp:</b> TV_00000001 TV.wav							
+							</p>
+
+							<h3> Evaluation criteria </h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+							The participants are required to output non-repeating subtitles and concatenate them
+							for each video. For a given video, subtitles of adjacent frames may be the same, and
+							the participants are required to deduplicate them and output subtitles. Normalized
+							metric in terms of Normalized Edit Distance (1-N.E.D. specially) will be treated as
+							the official ranking metric.
+							We will evaluate the predicted transcription with
+							the Normalized Edit Distance (N.E.D), which is formulated as:
+							<br/>
+							<img src="images/pic2.png" width="30%" align="center" />
+							<br/>
+							where D(:) stands for the Levenshtein Distance, and     and   denote the predicted
+								subtitles in string and the corresponding ground truths for each video. N is the
+								number of the test videoes.
+							<br/>
+							
+							<h3> Deadlines </h3>
+                            <table >
+								<tr>
+									<td> <b> Milestone </b> </td>
+									<td> <b> Date </b> </td>
+								</tr>
+								<tr>
+									<td> Registration period </td>
+									<td> Mar 7, 2022 -  </td>
+								</tr>
+								<tr>
+									<td> Data release  </td>
+									<td>  Mar 12, 2022 </td>
+								</tr>
+								<tr>
+									<td> Development period </td>
+									<td> Mar 12, 2022 - Apr 15, 2022 </td>
+								</tr>
+								<tr>
+									<td> Evaluation period </td>
+									<td> Apr 15, 2022 - Apr 30, 2022 </td>
+								</tr>
+								<tr>
+									<td> Release of evaluation dataset </td>
+									<td>  Apr 15, 2022 </td>
+								</tr>
+								<tr>
+									<td> Deadline for submission of results </td>
+									<td> Apr 30, 2022 </td>
+								</tr>
+								<tr>
+									<td> Deadline for submission of method descriptions </td>
+									<td> May 5, 2022 </td>
+								</tr>
+								<tr>
+									<td> Announcement of evaluation results </td>
+									<td> May 6, 2022 </td>
+								</tr>
+								<tr>
+									<td> Competition paper submission </td>
+									<td> May 20, 2022 </td>
+								</tr>
+							</table>
+
+                            <h3> Issues and Questions </h3>
+
+							<p>
+							For any questions, please send an email to 13693225189@163.com.
+							You can also join our weChat group by scanning the code below:
+							<br>
+							</p>
+							<img src="images/pic4.png" width="20%" align="center" />
+
+							<br>
+							<h3>
+								Contact information for the organizers
+							</h3>
+							<p style="text-align:justify; text-justify:inter-ideograph;">
+								Shan Huang, Tencent, lattehung@tencent.com <br>
+								Shen Huang, Tencent, springhuang@tencent.com <br>
+								Pengfei Hu, Tencent, alanpfhu@tencent.com <br>
+								Xiang Wang, Tencent, andyxwang@tencent.com <br>
+								Jian kang, Tencent, jiankang@tencent.com <br>
+								Lianwen Jin, South China University of Technology, eelwjin@scut.edu.cn <br>
+								YuLiang Liu, The Chinese University of Hong Kong, liu.yuliang@mail.scut.edu.cn <br>
+							</p>
+             
+							</p>
 						</article>
 					</div>
 			</div>
