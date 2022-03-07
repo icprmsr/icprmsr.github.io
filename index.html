@@ -87,53 +87,65 @@
 							</p>
 
 
-							<h3> Description of the problem </h3>
-                            <p style="text-align:justify; text-justify:inter-ideograph;"> 
-								Videos carry rich information with both visual (including text) and audio modality.
-								Video understanding has been a popular research topic in both academia and industry.
-								The development of methods to fuse the multi-modal information is also a
-								challenging and meaningful exploration.
-								<br>
-								In this challenge, we focus on extracting subtitles from videos. Subtitles are the text
-								derived from either a transcript or screenplay of the dialogue or commentary in
-								videos. Subtitles may be the most important text information for video data, as they
-								contain information of what the people said. They are widely used in
-								recommendation, retrieval and video understanding systems.
-								<br>
-								Subtitles refer to the text displayed in the video after converting the audio into
-								accurate text, however the text in the video is not always belong to subtitles. For
-								example, the text in the blue boxes in the figure is not a subtitle, but the text in the red
-								box that converts audio into text is a subtitle.
-							</p>
-                            <p style="text-align:center;">
-								<img src="images/pic0.png" width="50%" align="center" />
-							</p>
-                            <p style="text-align:justify; text-justify:inter-ideograph;"> 
-								Subtitle extraction is a challenging task with single modal information. The audio
-								method is sensitive to the background noise and variations in accent, and some
-								specific or homophonic words are difficult to recognize accurately. If we only
-								consider visual information, it is plausible that the above problems could be tackled.
-								However, other problems along with video scenes appear if we overlook speech
-								information: Texts of plenty of categories are included and stacked, such as logos,
-								ads, backgrounds, and so on. They are great interference for extracting subtitles only
-								from video frames.
-								<br>
-								From the application perspective, annotating videos is very costly, whether in
-								annotating audio or text. Sometimes, the annotations of a single modality may be
-								available. In this challenge, we aim to encourage the development of methods to use
-								this supervision to train models to learn to perform annotations in another modality,
-								exploring new way of effective algorithm iteration across different modality.
-								Therefore, fusing both audio and visual modalities is necessary
-								and complimentary for subtitle extraction. 
-								<br>
-								In this challenge, we provide a large-scale
-								video dataset with both visual and audio annotations for extracting subtitles with
-								multi-modal technologies. We provide three subtasks for the participants, on the first
-								task, participants can use only audio supervision, whereas in the second, only visual
-								information is provided. In the third subtask, both visual and audio supervision are
-								provided and can be used.
-							</p>
-							</article>
+						<h3> Description of the Challenge </h3>
+                            
+					    <p style="text-align:justify; text-justify:inter-ideograph;">
+						<b> Subtask 1: Extracting subtitles in visual modality with audio annotations </b>
+						<br>
+						To extract subtitles from video frames, a large number of keyframes should be
+						annotated with bounding boxes and contents, which is extremely costive. However,
+						speech transcripts are much easier to obtain, and they contain almost all the content of
+						the subtitles. In this subtask, we present a challenge that explores learning visual
+						subtitles with the supervision of speech scripts. We expect that the annotation from
+						the audio modality can improve the subtitle extraction from the visual modality.
+						In this subtask, we will present 75h of video content, divided into set of 50, 5, 20 as
+						training, validation, and testing sets, respectively. For the training set, only audio
+						annotations will be provided. The participants are required to design subtitles OCR
+						system with these annotations. To pretrain an OCR system, participants can also use a
+						limited number of open datasets, and fine-tune their model with audio supervision.
+						Under these conditions, will be asked to produce subtitle text for each video in our
+						testing set, and the submitted results will be ranked using the CER metric.
+						The site for submissions is <a href="https://codalab.lisn.upsaclay.fr/competitions/2415">subtask1</a>.
+						</p>
+						
+						<p style="text-align:justify; text-justify:inter-ideograph;">
+						<b> Subtask 2: Extracting subtitles in audio modal with visual annotations </b>
+						<br>
+						In speech recognition tasks, especially in video speech recognition tasks, audio data
+						are difficult to label owing to background music, sound effects, or noise. However, all
+						texts information including subtitles in the video can supply weakly labeled
+						information.
+						There are lots of videos with subtitles. Some texts information including
+						subtitles are manually generated, whereas some are automaticly generated.
+						Although the quality of automatic subtitles may be worse than that of manual subtitles, they are
+						often available in much greater quantity.
+ 						Therefore, this task considers the use of
+ 						visual annotations in videos, especially automatic annotations to assist in building an
+						ASR system.
+						In this subtask, the participants will be required to use only visual annotations to
+						build an ASR system for the corresponding videos. To improve the robustness, some
+						public ASR data in the following tables may be used as well. We will also provide a
+						baseline model. The submitted results will be ranked with the CER metric on our
+						testing set.
+						The site for submissions is <a href="https://codalab.lisn.upsaclay.fr/competitions/2417">subtask2</a>.
+						</p>
+                        
+						<p style="text-align:justify; text-justify:inter-ideograph;">
+							<b>Subtask 3: Extracting subtitles with both visual and audio annotations</b>
+							<br>
+							In this subtask, for the training set, we present 50 hours of video content with both the
+							visual and audio supervisions and 200-hour video content with no annotation.
+							Another 20 and 5 h of videos will be provided to serve as validation and testing sets, respectively. 
+							For the visual annotation, we will provide bounding boxes and
+							characters of all text in key frames, we will present speech transcripts of
+							segment or the audio modal. With these data, participants will be required to produce
+							each VAD subtitle for each video in our testing set, and the submitted results will be ranked with
+							the CER metric.
+							The site for submissions is <a href="https://codalab.lisn.upsaclay.fr/competitions/2418">subtask3</a>.
+						</p>
+
+						<h3> Datasets </h3>
+						</article>
 					</div>
 			</div>
 
