@@ -40,7 +40,7 @@
 					<div id="main">
                      
 					<article class="post featured">
-						<h3> Evaluation criteria </h3>
+						<h3> Evaluation Criteria </h3>
 						<p style="text-align:justify; text-justify:inter-ideograph;">
 						The participants are required to output non-repeating subtitles and concatenate them
 						for each video. For a given video, subtitles of adjacent frames may be the same, and
@@ -56,10 +56,32 @@
  							subtitles in string and the corresponding ground truths for each video. N is the
 							 number of the test videoes.
 					    <br/>
+						<br>
 						<b> Note: </b> To avoid the ambiguity in annotations, we preform preprocessing before
 						evaluation: 1)The English letters are not case sensitive; 2) The Chinese traditional and
 						simplified characters are treated as the same label; 3)The blank spaces and symbols
 						will be removed; 4) All illegible videoes will not contribute to the evaluation result.
+						
+                        <br/>
+						<h3> Evaluation Plan </h3>
+						<p style="text-align:justify; text-justify:inter-ideograph;">
+							On March 12, organizers provide the training set with annotations. Each task has 50 hours of video data. 
+							Participants are required to develop corresponding models according to the requirements of each track.
+                            <br/>
+							<br>
+							On April 22, the organizers will provide the validation set without annotations. And each track contains 20 hours of video data. 
+							Participants predict subtitles of each, and submit the prediction results to the CodaLab website. 
+							The organizers will give the ranking on the validation set according to the prediction result.
+                            <br/>
+							<br>
+							On May 7th, the organizers will provide the test set (including 5 hours of video data) without annotations. 
+							It is required that the top ten participants of each track in the validation set be within two days (that is, before May 9th). 
+							According to the video data in the test set, <b> top ten participants on the validation set </b> are required to predict the subtitles in the video, 
+							and submit the prediction results to the CodaLab website.
+							Finally, <b> the final rank of each track = 50% * rank on the validation set + 50% * rank on the test set </b>. 
+							The test set will be announced on the official website (icprmsr.github.io) after May 9, 
+							and the final ranking information of the participants will also be announced on the competition website, 
+							and the participants will be notified by email.
 						</p>
 					</article>
 
