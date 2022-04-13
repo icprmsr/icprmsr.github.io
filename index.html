@@ -66,24 +66,31 @@
 
                             <h3> FAQ </h3>
                             <p>
-                            <b> Pretrain Models and Data </b>
+                            <b> OCR Pretrain Models</b>
 							<br>
-                            In this competition, it is limited to use the pre-trained models of ImageNet and Bert, and models fine-tuned for other downstream tasks cannot be used. 
-							Furthermore, this competition allows OCR and ASR models to be trained using open source datasets LSVT, chinese_ocr and Aishell1, respectively. 
-							Among them, LSVT and Chinese_ocr use up to 10,000 training set data respectively. 
-							Aishell1 can only use up to 150 hours of training set, test set and validation set cannot be used.
+                            In this competition, it is limited to use the pre-trained models of ImageNet and Bert, 
+							and models fine-tuned via other downstream tasks cannot be used. 
+                            Furthermore, this competition allows OCR models to be trained 
+							using open source datasets LSVT and chinese_ocr, respectively. 
+                            Among them, LSVT and Chinese_ocr use up to 10,000 training set data respectively. 
+							<br>
+							<b> ASR Pretrain Models</b>
+							<br>
 							For ASR models, unsupervised acoustic model related to wav2vec cannot be used.
-							Besides, synthetic data cannot be used.
+							Furthermore, this competition allows ASR models to be trained 
+							using open source datasets Aishell1. 
+							Aishell1 can only use up to 150 hours of training set, test set and validation set cannot be used.
+							<br>
+							<b>Audio Synthetic Data</b>
+							<br>
+							Audio synthetic data cannot be used.
 							The reason is that unsupervised acoustic models and TTS systems that generate synthetic data 
 							cannot be ensured that data with the label is not used.
-							For images, the corpus of the corresponding task we provide can be used to synthesize the image data.
 							<br>
-							<b>Wav2vec</b>
+							<b>Image Synthetic Data</b>
 							<br>
-							For the subtask2, wav2vec unsupervised training model can be used, 
-							but the link to the pre-model must be provided.
+						    For images, the corpus of the corresponding task we provide can be used to synthesize the image data.
 							<br>
-							<b></b>
                             <b> Frame Rate </b>
 							<br>
 							When providing weakly supervised annotation, it is taken at 5 frames per second, 
