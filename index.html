@@ -72,24 +72,21 @@
 							and models fine-tuned via other downstream tasks cannot be used. 
                             Furthermore, this competition allows OCR models to be trained 
 							using open source datasets LSVT and chinese_ocr, respectively. 
-                            Among them, LSVT and Chinese_ocr use up to 10,000 training set data respectively. 
-							<br>
-							<b> ASR Pretrain Models</b>
-							<br>
-							For ASR models, unsupervised acoustic model related to wav2vec cannot be used.
-							Furthermore, this competition allows ASR models to be trained 
-							using open source datasets Aishell1. 
-							Aishell1 can only use up to 150 hours of training set, test set and validation set cannot be used.
-							<br>
-							<b>Audio Synthetic Data</b>
-							<br>
-							Audio synthetic data cannot be used.
-							The reason is that unsupervised acoustic models and TTS systems that generate synthetic data 
-							cannot be ensured that data with the label is not used.
+                            Among them, the training set data of Chinese_ocr can be used up to 10,000. 
 							<br>
 							<b>Image Synthetic Data</b>
 							<br>
 						    For images, the corpus of the corresponding task we provide can be used to synthesize the image data.
+							<br>
+							<b> ASR Pretrain Models</b>
+							<br>
+							The pre-trained model of wav2vec is allowed to use, but the link to the pre-trained model is required.
+							Furthermore, this competition allows ASR models to be trained using open source datasets Aishell1. 
+							Aishell1 can only use up to 150 hours of training set, test set and validation set cannot be used.
+							<br>
+							<b>Audio Synthetic Data</b>
+							<br>
+							The voice data synthesized by TTS cannot be used.
 							<br>
                             <b> Frame Rate </b>
 							<br>
