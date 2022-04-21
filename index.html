@@ -64,6 +64,119 @@
 							<img src="images/pic4.jpeg" width="20%" align="center" />
 							<br>
 
+
+							<h3> Evaluation </h3>
+							<p>
+								<b>Subtask 1</b>
+								<br>
+								Annotations: The subtitles from the visual modal, in the format of the start frame, 
+								end frame, and the content of each subtitle.
+								<br>
+								Prediction: Participants need to predict the subtitle information in the video frame, 
+								and de-duplicate the repeated subtitles in adjacent consecutive frames, 
+								and give the start frame and end frame of the subtitle. 
+								The submitted predicted subtitle file needs to be an xml file.
+								<br>
+								Evaluation: We first traverse each subtitle in the video, 
+								and calculate tIOU (time intersection ratio) with the predictions. 
+								If  the tIOU of the annotated subtitle bewtween one predicted subtitle
+								is greater than 0.5 ( >=0.5 ), it is considered that the subtitle is correctly predicited.
+								Then, the CER between the predicted subtitle and the ground truth is calculated. 
+								However, if it does not exist, the subtitle is not correctly predicted.
+								The  the ground truth
+								Finally, the CER of each subtitle is summed and averaged as the CER result of the input video.
+								<br>
+								<b> Subtask 2</b>
+								<br>
+								Annotations: The subtitles contain in the audio.
+								<br>
+								Preditions: Participants need to give all the subtitle information in the audio. 
+								The format of the submitted prediction file is required to be in txt format.
+								The name of txt files must be the same with the video name.
+								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.txt".
+								<br>
+								Evaluation: The CER between the predicted subtitle and the ground truth is calculated to evaluate our models.
+								<br>
+								Number, mathematical symbol conversion standard:
+								(1) Uniformly standardize Arabic numerals as digital representations of Chinese characters. For example the audio content is “一千一百一十五点八” and the standard output is “一千一百一十五点八” instead of 1115.8.
+								(2) Standardize the percent sign into Chinese characters. For example the audio content is “百分之六十六”, and the standard output bits are “百分之六十六”, not 66%.
+								<br>
+
+								<b> Subtask 3 </b>
+								<br>
+								Annotation: The subtitle information in the video is provided by the audio and visual modalities.
+								Specifically, when both the audio and visual modality contain subtitles, 
+								the subtitles are from  two modalities.
+								For example, when the subtile from the visual modal is "ICPR MSR comptition" 
+								and the subtitle from the audio modal is "ICPR ICPR MSR competition" .
+								Then, the final subtitle is "ICPR ICPR MSR competition".
+								Second, when only the viusal modal contains subtitles, 
+								we employ the subtitle from the visual modal as the ground truth.
+								Third, when only the audio modal contains subtitles, 
+								we employ the subtitle from the audio modal as the ground truth.
+								<br>
+								Predictions: Participants need to predict all subtitles in the video. 
+								The format of the submitted prediction file is required to be the xml format.
+								The name of xml files must be the same with the video name.
+								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.xml".
+								<br>
+								Evaluation: The CER between the predicted subtitle and the ground truth is calculated to evaluate our models. 
+							</p>
+
+							<h3> 评测方案 </h3>
+							<p>
+								<b> 任务一 </b>
+								<br>
+								<b>任务一要求</b>: 输入视频,进行抽帧(为确保分帧的ID信息能够对齐,最好使用主办方提供的抽帧代码),预测视频帧中的字幕信息。
+								<br>
+								<b>真实标注</b>: 视频帧中的字幕信息,格式为每条字幕的起始帧,结束帧,字幕内容。
+								<br>
+                                <b>预测</b>: 参赛选手,需要预测视频帧中的字幕信息,并且对相邻连续帧中的重复字幕进行去重,并且给出字幕的起始帧和结束帧。
+								提交的预测字幕文件为xml文件, 具体可见百度网盘或者腾讯微云链接。命名需要视频名字相同,例如,视频名为:00001.mp4, 则提交的xml
+								文件名为00001.xml。
+								<br>
+								<b>评测</b>: 首先遍历真实标注中的每一条字幕, 并且与预测字幕信息计算tIOU(时间交并比),
+								 如果评测中存在某条字幕时间和真实标注中与该条字幕的tIOU大于0.5, 则认为该条字幕被正确命中, 然后计算该条字幕与真实标注之间的CER。
+								 反之,如果不存在,则该条字幕未被正确命中,该条字幕CER为1。最后,每条字幕的CER加和求平均作为输入视频的CER结果。
+                                <br>
+								<b> 任务二 </b>
+								<br>
+								<b>任务二要求</b>: 输入音频,输出音频内的字幕信息。
+								<br>
+							    <b>真实标注</b>: 音频中的所有字幕信息。
+                                <br>
+								<b>预测</b>: 参赛选手需要给出该段音频中的所有字幕信息。提交的预测字幕文件为txt文件，格式要求与上述真实字幕一致。需要包括两部分信息：视频名称、文本内容，视频名称与提供的音频名称相同（不加后缀），如音频‘00016253_00000.mp4’，对应VIDEO_NAME为‘00016253_00000’。视频名称与文本内容需要用空格间隔开。
+								<br>
+								<b>评测</b>: 将预测的字幕信息与真实的字幕信息两个文本之间计算CER作为输入音频的CER结果。
+                                <br>
+								<b>数字、数学符号转换标准</b>:
+								在参赛选手的预测字幕文件中,要求
+								<br>
+								第一、将阿拉伯数字统一规范为汉字的数字表达。例如音频内容是"一千一百一十五点八",标准输出为"一千一百一十五点八",而不是1115.8。
+								第二、将百分号统一规范为汉字。例如音频内容是"百分之六十六", 标准输出位"百分之六十六", 而不是66%。
+                                <br>
+								<b>任务三</b>
+								<br>
+								<b>任务三要求</b>: 输入视频, 输出视频内的字幕信息。
+								<br> 
+								<b>真实标注</b>: 视频中的字幕信息, 以两个音频和视觉模态共同提供的字幕信息为准。具体为,
+								第一, 当该时间段内音频模态和视觉模态都含有字幕信息时, 取得是两个模态中提供的字幕信息的并集。
+								例如, 第0到1秒, 音频模态提供的字幕信息是“我们 我们是某某某”, 而视觉模态提供的字幕信息是“我们是某某”, 则第0到1秒的字幕信息为-“我们 我们是某某某”。 
+								第二, 当该时间段内只含有音频模态提供的字幕信息, 则以音频模态提供的字幕信息为准。
+								第三, 当该时间段内只含有视觉模态提供的字幕信息, 则以视觉模态提供的字幕信息为准。
+								<br>
+								<b>预测</b>: 参赛选手需要给出该段视频中的所有字幕信息。
+								每段视频须对应一个单独的预测字幕文件, 命名需与视频名字相同, 如上所述, 具体可见百度网盘或者腾讯微云链接, 格式要求与上述真实字幕一致。不要求时间一致。
+								<br>
+								<b>评测</b>: 首先, 分别对每个视频文件中的不同时间段内的字幕按照时间顺序进行合并, 
+								合并成一个含有该视频中所有字幕的文本。参赛选手预测的字幕信息, 也将按照时间顺序合并成一个含有该视频中所有字幕的文本。
+								之后, 两个文本之间计算CER作为输入视频的CER结果。
+								<br>
+							</p>
+
+
+
+
                             <h3> FAQ </h3>
                             <p>
                             <b> OCR Pretrain Models</b>
@@ -111,9 +224,10 @@
 							<br>
 							
 						    </p>
+							
+                            
 
-
-
+   
 
 
 
