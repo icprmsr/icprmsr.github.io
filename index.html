@@ -64,7 +64,6 @@
 							<img src="images/pic4.jpeg" width="20%" align="center" />
 							<br>
 
-
 							<h3> Evaluation </h3>
 							<p>
 								<b>Subtask 1</b>
@@ -73,27 +72,23 @@
 								end frame, and the content of each subtitle.
 								<br>
 								Prediction: Participants need to predict the subtitle information in the video frame, 
-								and de-duplicate the repeated subtitles in adjacent consecutive frames, 
-								and give the start frame and end frame of the subtitle. 
-								The submitted predicted subtitle file needs to be an xml file.
+								remove repeated subtitles in adjacent consecutive frames, 
+								and provide the start frame and end frame of the subtitle. The submitted predicted subtitle file should be the format of xml file.
 								<br>
-								Evaluation: We first traverse each subtitle in the video, 
-								and calculate tIOU (time intersection ratio) with the predictions. 
-								If  the tIOU of the annotated subtitle bewtween one predicted subtitle
-								is greater than 0.5 ( >=0.5 ), it is considered that the subtitle is correctly predicited.
-								Then, the CER between the predicted subtitle and the ground truth is calculated. 
-								However, if it does not exist, the subtitle is not correctly predicted.
-								The  the ground truth
-								Finally, the CER of each subtitle is summed and averaged as the CER result of the input video.
+								Evaluation: For each subtitle in the ground-truth, we find from the predicted results with the largest tIoU and tIoU >= 0.5 
+								as the matched prediction, calculating the cer between the characters. If no prediction can be matched, then this subtitle is missing, 
+								the corresponding cer is 1. Later, for the remaining preditions, if one has a tIou >= 0.5 with a ground-truth subtitile, 
+								but is not the best match in the previous step, it will be regarded as a false detection, and the cer is 1. 
+								The final cer is the average of all the cer numbers.
 								<br>
 								<b> Subtask 2</b>
 								<br>
 								Annotations: The subtitles contain in the audio.
 								<br>
-								Preditions: Participants need to give all the subtitle information in the audio. 
-								The format of the submitted prediction file is required to be in txt format.
-								The name of txt files must be the same with the video name.
-								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.txt".
+								Preditions:  Participants need to give all the subtitle information in the audio. 
+								The format of the submitted prediction file is required to be the txt format. 
+								The name of txt files must be the same with the video name. 
+								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.txt". 
 								<br>
 								Evaluation: The CER between the predicted subtitle and the ground truth is calculated to evaluate our models.
 								<br>
@@ -104,23 +99,24 @@
 
 								<b> Subtask 3 </b>
 								<br>
-								Annotation: The subtitle information in the video is provided by the audio and visual modalities.
+								Annotation: The subtitle information in the video is provided by the audio and visual modalities. 
 								Specifically, when both the audio and visual modality contain subtitles, 
-								the subtitles are from  two modalities.
-								For example, when the subtile from the visual modal is "ICPR MSR comptition" 
-								and the subtitle from the audio modal is "ICPR ICPR MSR competition" .
-								Then, the final subtitle is "ICPR ICPR MSR competition".
-								Second, when only the viusal modal contains subtitles, 
-								we employ the subtitle from the visual modal as the ground truth.
+								the subtitles are from  two modalities. 
+								For example, when the subtitle from the visual modal is "ICPR MSR competition" 
+								and the subtitle from the audio modal is "ICPR ICPR MSR competition" . 
+								Then, the final subtitle is "ICPR ICPR MSR competition". 
+								Second, when only the visual modal contains subtitles, 
+								we employ the subtitle from the visual modal as the ground truth. 
 								Third, when only the audio modal contains subtitles, 
 								we employ the subtitle from the audio modal as the ground truth.
 								<br>
 								Predictions: Participants need to predict all subtitles in the video. 
-								The format of the submitted prediction file is required to be the xml format.
-								The name of xml files must be the same with the video name.
-								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.xml".
+								The format of the submitted prediction file is required to be the xml format. 
+								The name of xml files must be the same with the video name. 
+								For example, if the video name is "000001.mp4", the name of txt file needs to be "000001.xml". 
 								<br>
-								Evaluation: The CER between the predicted subtitle and the ground truth is calculated to evaluate our models. 
+								Evaluation: Participants need to concat all the subtitles in order of time. 
+								The CER between the predicted subtitle and the ground truth is calculated to evaluate the models. 
 							</p>
 
 							<h3> 评测方案 </h3>
@@ -135,9 +131,10 @@
 								提交的预测字幕文件为xml文件, 具体可见百度网盘或者腾讯微云链接。命名需要视频名字相同,例如,视频名为:00001.mp4, 则提交的xml
 								文件名为00001.xml。
 								<br>
-								<b>评测</b>: 首先遍历真实标注中的每一条字幕, 并且与预测字幕信息计算tIOU(时间交并比),
-								 如果评测中存在某条字幕时间和真实标注中与该条字幕的tIOU大于0.5, 则认为该条字幕被正确命中, 然后计算该条字幕与真实标注之间的CER。
-								 反之,如果不存在,则该条字幕未被正确命中,该条字幕CER为1。最后,每条字幕的CER加和求平均作为输入视频的CER结果。
+								<b>评测</b>: 首先遍历真实标注中的每一条字幕,并且与预测字幕信息计算tIOU(时间交并比),
+								匹配tIoU最大并且>=0.5的预测结果,计算cer. 如果不存在,则该条字幕未被正确命中,该条字幕CER为1。
+								同时,对于预测字幕,若与某条真实字幕的tIoU>=0.5但不是最大的预测,视为误检,cer = 1.
+								最后,所有的CER加和求平均作为输入视频的CER结果。
                                 <br>
 								<b> 任务二 </b>
 								<br>
@@ -145,7 +142,9 @@
 								<br>
 							    <b>真实标注</b>: 音频中的所有字幕信息。
                                 <br>
-								<b>预测</b>: 参赛选手需要给出该段音频中的所有字幕信息。提交的预测字幕文件为txt文件，格式要求与上述真实字幕一致。需要包括两部分信息：视频名称、文本内容，视频名称与提供的音频名称相同（不加后缀），如音频‘00016253_00000.mp4’，对应VIDEO_NAME为‘00016253_00000’。视频名称与文本内容需要用空格间隔开。
+								<b>预测</b>: 参赛选手需要给出该段音频中的所有字幕信息。提交的预测字幕文件为txt文件,格式要求与上述真实字幕一致。
+								需要包括两部分信息: 视频名称、文本内容,视频名称与提供的音频名称相同(不加后缀),如音频"00016253_00000.mp4",对应VIDEO_NAME为"00016253_00000"。
+								视频名称与文本内容需要用空格间隔开。
 								<br>
 								<b>评测</b>: 将预测的字幕信息与真实的字幕信息两个文本之间计算CER作为输入音频的CER结果。
                                 <br>
