@@ -64,6 +64,62 @@
 							<img src="images/pic4.jpeg" width="20%" align="center" />
 							<br>
 
+
+							<h3> 提交指南 </h3>
+							<p>
+								现CodaLab网站已经可以开放提交结果啦, 参赛选手们可以按照以下步骤提交比赛结果:
+								<br>
+                                第一步, 登录CodaLab网站, 点击Participate submit/View Results填写相关信息, 
+								Team Name/Method Name/Method description可根据自己的想法填写。
+								<br>
+								<img src="images/tj_1.png" width="60%" align="center" />
+								<br>
+								第二步, 上传自己的结果文件,要求结果文件压缩为zip文件。对于任务一, Zip文件应包含xml文件, 
+								每个xml文件表示对应视频的预测结果。其中, xml文件命名规则为, 例如视频为00001.mp4, 则xml文件应为00001.mp4.xml。
+								其中xml文件的具体内容见官网(icprmsr.github.io)或者Codalab网站。任务三与任务一类似。
+								任务二要求所有预测结果放入一个txt文件当中, txt文件内容详见官网或者网站。
+								在上传结果当中, 如果存size(BYTES)大小为0, 可能为网速问题导致上传未成功, 建议再次上传。
+								<br>
+								<img src="images/tj2.png" width="60%" align="center" />
+								<br>
+								第三步, 如果上传成功, 则接下来会显示Failed/Finished两个状态。
+								如果是Finished状态, 则表示结果已经计算, 通过Score一列查看自己的成绩。
+								一般从Submitted->Finished会花费1-5分钟。如果STATUS为Failed, 点击右边的加号, 查看错误原因。
+								也可通过以下几个文件查看具体原因。
+								<br>
+								<img src="images/tj3.png" width="60%" align="center" />
+								<br>
+								Download your submission
+								<br>
+								View scoring output log
+								<br>
+								View scoring error log
+								<br>
+								View predict output log
+								<br>
+								View predict error log
+								<br>
+								Download output from prediction step
+								<br>
+								Download output from scoring step
+								<br>
+								Download private output from scoring step
+                                <br>
+								第四步, 如果状态已经变为Finished, 可以选择是否将自己的成绩公布在Leaderboard上或者公开。
+								其中, Leaderboard上的Difference表示CER的结果。
+								<br>
+								<img src="images/tj4.png" width="60%" align="center" />
+								<br>
+								注意: 如果结果值为1, 则可能是Zip文件没有包含所有视频的结果, 点击output log可以看到以下的内容:
+								<br>
+								<img src="images/tj5.png" width="60%" align="center" />
+								<br>
+								Zip文件要包含所有视频的字幕预测结果。
+								<br>
+								比赛第一周内(4.23-4.30)不限定提交次数, 之后每天限定(4.30-5.9)提交5次。
+								<br>
+							</p>
+
 							<h3> Evaluation </h3>
 							<p>
 								<b>Subtask 1</b>
@@ -129,7 +185,7 @@
 								<br>
                                 <b>预测</b>: 参赛选手,需要预测视频帧中的字幕信息,并且对相邻连续帧中的重复字幕进行去重,并且给出字幕的起始帧和结束帧。
 								提交的预测字幕文件为xml文件, 具体可见百度网盘或者腾讯微云链接。命名需要视频名字相同,例如,视频名为:00001.mp4, 则提交的xml
-								文件名为00001.xml。
+								文件名为00001.mp4.xml。
 								<br>
 								<b>评测</b>: 首先遍历真实标注中的每一条字幕,并且与预测字幕信息计算tIOU(时间交并比),
 								匹配tIoU最大并且>=0.5的预测结果,计算cer. 如果不存在,则该条字幕未被正确命中,该条字幕CER为1。
@@ -172,6 +228,17 @@
 								之后, 两个文本之间计算CER作为输入视频的CER结果。
 								<br>
 							</p>
+
+
+							
+
+
+
+
+
+
+
+
 
 
 
