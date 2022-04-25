@@ -44,18 +44,25 @@
 						<p style="text-align:justify; text-justify:inter-ideograph;">
 						The participants are required to output non-repeating subtitles and concatenate them
 						for each video. For a given video, subtitles of adjacent frames may be the same, and
-						the participants are required to deduplicate them and output subtitles. Normalized
+						the participants are required to deduplicate them and output subtitles. 
+						We will evaluate the predicted transcription with CER.
+						<!--
+						Normalized
 						metric in terms of Normalized Edit Distance (1-N.E.D. specially) will be treated as
 						the official ranking metric.
-						We will evaluate the predicted transcription with
+                        -->
+						<!--
 						the Normalized Edit Distance (N.E.D), which is formulated as:
 						<br/>
+						
 						<img src="images/pic2.png" width="30%" align="center" />
+						
 						<br/>
 						where D(:) stands for the Levenshtein Distance, and     and   denote the predicted
  							subtitles in string and the corresponding ground truths for each video. N is the
 							 number of the test videoes.
 					    <br/>
+						-->
 						<br>
 						<b> Note: </b> To avoid the ambiguity in annotations, we preform preprocessing before
 						evaluation: 1)The English letters are not case sensitive; 2) The Chinese traditional and
