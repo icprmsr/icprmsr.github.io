@@ -508,18 +508,8 @@
 							<p style="text-align:justify; text-justify:inter-ideograph;">
 							The participants are required to output non-repeating subtitles and concatenate them
 							for each video. For a given video, subtitles of adjacent frames may be the same, and
-							the participants are required to deduplicate them and output subtitles. Normalized
-							metric in terms of Normalized Edit Distance (1-N.E.D. specially) will be treated as
+							the participants are required to deduplicate them and output subtitles. CER will be treated as
 							the official ranking metric.
-							We will evaluate the predicted transcription with
-							the Normalized Edit Distance (N.E.D), which is formulated as:
-							<br/>
-							<img src="images/pic2.png" width="30%" align="center" />
-							<br/>
-							where D(:) stands for the Levenshtein Distance, and     and   denote the predicted
-								subtitles in string and the corresponding ground truths for each video. N is the
-								number of the test videoes.
-							<br/>
                             <br>
 							On March 12, organizers provide the training set with annotations. Each task has 50 hours of video data. 
 							Participants are required to develop corresponding models according to the requirements of each track.
